@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  color: azure;
+  font-family: "Montserrat", sans-serif;
+}
+/* / // // // // classes / / / / */
+.l-heading {
+  font-size: 4rem;
+  font-weight: 500;
+}
+.m-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.s-heading {
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+#container {
+  text-align: center;
+  padding: 50px 0;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+#or {
+  margin: 1.7em 0;
+  color: #333;
+}
+
+.myLoc {
+  /* border: 1px solid rebeccapurple; */
+  display: inline-block;
+  padding: 1em 2rem;
+  background-color: lightskyblue;
+  cursor: pointer;
+}
+.myLoc:focus,
+.myLoc:hover {
+  opacity: 0.8;
+  transition: all ease-in 300ms;
+}
+#input {
+  height: 10vh;
+  border: none;
+  font-size: 20px;
+  padding: 0 20px;
+}
+#input:focus {
+  outline: none;
+  border: 3px lightskyblue solid;
+  color: #333;
+}
+
+.weather-page {
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* display: none; */
+}
+
+.png {
+  width: 60px;
+  height: 30px;
+  margin: 2em;
+}
+.city-country {
+  margin-bottom: 1.5em;
+}
+.temp {
+  margin: 0.5em 0;
+}
+.weather {
+  margin: 1em 0;
+}
+.wind {
+  display: flex;
+  flex-direction: column;
+  margin: 0.8em 0;
+}
+.wind-speed {
+  margin: 0.3em 0;
+}
+.days-container {
+  padding: 3em 0;
+  width: 100vw;
+}
+.day {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid red; */
+  justify-content: space-around;
+}
+.max-min {
+  display: flex;
+}
+.days-icon {
+  width: 30px;
+  height: 30px;
+}
+.hidden {
+  display: none;
+}

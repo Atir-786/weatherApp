@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>weather</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="starter">
+        <form id="form">
+          <input type="text" placeholder="Enter the city name" id="input" />
+        </form>
+
+        <h1 id="or">OR</h1>
+
+        <div class="myLoc">
+          <h2>Use my location</h2>
+        </div>
+      </div>
+      <!-- weather UI -->
+      <div class="weather-page hidden">
+        <h1 class="city-country m-heading">Srinagar,India</h1>
+        <div class="png">
+          <img src="cloud-solid.svg" class="weather-icon" alt="image" />
+        </div>
+        <h1 class="temp l-heading">23</h1>
+        <h1 class="weather m-heading">Cloudy</h1>
+        <h2 class="wind s-heading">
+          Wind <span class="wind-speed">4m/s</span>
+        </h2>
+        <!-- 4 day forecast -->-
+        <div class="days-container">
+          <div class="day">
+            <h2 class="day-date">Tue,Apr 14</h2>
+            <div class="days-icon">
+              <img src="./cloud-solid.svg" alt="" />
+            </div>
+            <div class="max-min">
+              <h2 class="max">11</h2>
+              <h2 class="min">4</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
