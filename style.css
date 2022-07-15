@@ -21,6 +21,9 @@ body {
   font-weight: 400;
   font-size: 1.3rem;
 }
+/* .margin-1 {
+  margin: 0.1em 0;
+} */
 
 #container {
   text-align: center;
@@ -103,10 +106,10 @@ body {
 .max-min {
   display: flex;
 }
-.days-icon {
+/* .days-icon {
   width: 30px;
   height: 30px;
-}
+} */
 .hidden {
   display: none;
 }

@@ -14,6 +14,7 @@ const min = document.querySelector(".min");
 const img = document.querySelector(".weather-icon");
 const forecastIcon = document.querySelector(".forecast-icon");
 const dayDate = document.querySelector(".day-date");
+const daysContainer = document.querySelector(".days-container");
 const key = "116d68080960d3de10121bb1c22de76d";
 const days = ["sun", "mon", "tue", "wed", "Thur", "fri", "sat"];
 const months = [
@@ -42,21 +43,45 @@ const display = function (data) {
 const displayForecast = function (data) {
   console.log(data);
   img.src = `${data.current.condition.icon}`;
-  max.textContent = `${Math.trunc(
-    data.forecast.forecastday[0].day.maxtemp_c
-  )}°,`;
-  min.textContent = `${Math.trunc(
-    data.forecast.forecastday[0].day.mintemp_c
-  )}°`;
-  forecastIcon.src = `https:${data.forecast.forecastday[0].day.condition.icon}`;
-  const date = new Date(data.forecast.forecastday[0].date);
-  const month = date.getMonth();
-  const day = date.getDate();
-  const weekDay = date.getDay();
-  console.log(weekDay);
-  console.log(day);
-  console.log(month);
-  dayDate.textContent = `${days[weekDay]}, ${months[month]} ${day}`;
+  // max.textContent = `${Math
+  //   .trunc
+  //   // data.forecast.forecastday[0].day.maxtemp_c
+  //   ()}°,`;
+  // min.textContent = `${Math
+  //   .trunc
+  //   // data.forecast.forecastday[0].day.mintemp_c
+  //   ()}°`;
+  // // forecastIcon.src = `https:${data.forecast.forecastday[0].day.condition.icon}`;
+
+  // console.log(weekDay);
+  // console.log(day);
+  // console.log(month);
+  // dayDate.textContent = `${days[weekDay]}, ${months[month]} ${day}`;
+  const index = data.forecast.forecastday.length;
+  console.log(index);
+  for (let i = 0; i <= index; i++) {
+    const date = new Date(data.forecast.forecastday[i].date);
+    const month = date.getMonth();
+    const day = date.getDate();
+    const weekDay = date.getDay();
+    const html = `<div class="day margin-1">
+            <h2 class="day-date">${days[weekDay]}, ${months[month]} ${day}</h2>
+            <div class="days-icon">
+              <img src=https:${
+                data.forecast.forecastday[i].day.condition.icon
+              } class="forecast-icon" alt="" />
+            </div>
+            <div class="max-min">
+              <h2 class="max">${Math.trunc(
+                data.forecast.forecastday[i].day.maxtemp_c
+              )}°,</h2>
+              <h2 class="min">${Math.trunc(
+                data.forecast.forecastday[i].day.mintemp_c
+              )}°</h2>
+            </div>
+          </div>`;
+    daysContainer.insertAdjacentHTML("beforeend", html);
+  }
 };
 const getLocation = function () {
   navigator.geolocation.getCurrentPosition(
