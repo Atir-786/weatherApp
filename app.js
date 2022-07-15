@@ -38,28 +38,13 @@ const display = function (data) {
   temp.textContent = `${Math.trunc(data.main.temp)}°C`;
   weather.textContent = `${data.weather[0].main}`;
   windSpeed.textContent = `${data.wind.speed} m/s`;
-  // img.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 };
 const displayForecast = function (data) {
   console.log(data);
   img.src = `${data.current.condition.icon}`;
-  // max.textContent = `${Math
-  //   .trunc
-  //   // data.forecast.forecastday[0].day.maxtemp_c
-  //   ()}°,`;
-  // min.textContent = `${Math
-  //   .trunc
-  //   // data.forecast.forecastday[0].day.mintemp_c
-  //   ()}°`;
-  // // forecastIcon.src = `https:${data.forecast.forecastday[0].day.condition.icon}`;
-
-  // console.log(weekDay);
-  // console.log(day);
-  // console.log(month);
-  // dayDate.textContent = `${days[weekDay]}, ${months[month]} ${day}`;
-  const index = data.forecast.forecastday.length;
-  console.log(index);
-  for (let i = 0; i <= index; i++) {
+  const length = data.forecast.forecastday.length;
+  console.log(length);
+  for (let i = 0; i <= length - 1; i++) {
     const date = new Date(data.forecast.forecastday[i].date);
     const month = date.getMonth();
     const day = date.getDate();
@@ -102,12 +87,13 @@ const getLocation = function () {
         .catch((err) => console.log(err.message));
 
       const reqWeatherAPI =
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=5362e219352f49e7941131801221207&q=${lat},${lng}&days=5&aqi=no&alerts=no
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=5362e219352f49e7941131801221207&q=${lat},${lng}&days=5&aqi=no&alerts=no
 `)
           .then((res) => res.json())
           .then((data) => {
             displayForecast(data);
-          });
+          })
+          .catch((err) => console.log(err.message));
     },
     function () {
       console.log("could not get your location");
@@ -129,7 +115,7 @@ form.addEventListener("submit", function (e) {
     })
     .catch((err) => console.log(err.message));
   const reqWeatherAPI2 =
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=5362e219352f49e7941131801221207&q=${input.value}&days=5&aqi=no&alerts=no
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=5362e219352f49e7941131801221207&q=${input.value}&days=5&aqi=no&alerts=no
 `)
       .then((res) => res.json())
       .then((data) => {
