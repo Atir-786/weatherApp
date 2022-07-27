@@ -15,7 +15,7 @@ const img = document.querySelector(".weather-icon");
 const forecastIcon = document.querySelector(".forecast-icon");
 const dayDate = document.querySelector(".day-date");
 const daysContainer = document.querySelector(".days-container");
-const backArrow = document.querySelector("#back-arrow");
+const backArrow = document.querySelector(".back-arrow");
 const loader = document.querySelector(".lds-roller");
 const key = "116d68080960d3de10121bb1c22de76d";
 const days = ["sun", "mon", "tue", "wed", "Thur", "fri", "sat"];
@@ -32,14 +32,12 @@ const months = [
   "nov",
   "dec",
 ];
-
+const hideStarter = function () {
+  starterPage.classList.add("hidden");
+};
 const display = function (data) {
   console.log(data);
-  // const array = [...starterPage.children];
-  // array.forEach((com) => com.classList.add("hidden"));
   loader.classList.add("hidden");
-
-  starterPage.classList.add("hidden");
   // form.classList.remove("hidden");
   weatherPage.classList.remove("hidden");
   backArrow.classList.remove("hidden");
@@ -110,19 +108,24 @@ const getLocation = function () {
   );
 };
 myLoc.addEventListener("click", function () {
+  hideStarter();
   loader.classList.remove("hidden");
   getLocation();
 });
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   console.log(input.value);
+  hideStarter();
   loader.classList.remove("hidden");
+
   const request2 = fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${key}&units=metric`
   )
     .then((res) => {
       if (!res.ok) {
         loader.classList.add("hidden");
+        document.location.reload();
+
         throw new Error("country not found");
       }
 

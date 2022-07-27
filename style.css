@@ -21,7 +21,10 @@ body {
   font-weight: 400;
   font-size: 1.3rem;
 }
-
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
 /* loader */
 .lds-roller {
   display: inline-block;
@@ -108,11 +111,21 @@ body {
   }
 }
 /* // // // /  */
+
 #container {
   text-align: center;
   padding: 50px 0;
   margin: 0 auto;
   height: 100vh;
+}
+.form-submit {
+  cursor: pointer;
+  border-radius: 20px;
+}
+.form-submit:hover,
+.form-submit:focus,
+.form-submit:active {
+  opacity: 0.8;
 }
 
 #or {
@@ -160,12 +173,9 @@ body {
   border: none;
   margin-left: 1rem;
 }
-#back-arrow {
-  padding: 0.4em 1em;
-  font-size: 1rem;
-  background-color: lightskyblue;
-  border: none;
-  margin-bottom: 1em;
+.back-arrow {
+  position: absolute;
+  left: 20%;
 }
 #back-arrow:hover,
 #back-arrow:focus,
@@ -215,4 +225,9 @@ body {
 
 .hidden {
   display: none;
+}
+@media screen and (max-width: 413px) {
+  .form-submit {
+    margin-top: 15px;
+  }
 }
